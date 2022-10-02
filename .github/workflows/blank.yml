@@ -46,6 +46,7 @@ jobs:
           body: ${{ steps.changelog.outputs.clean_changelog }}
 
       - name: Create Release On Monday
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: |
           curl --location --request POST 'https://api.monday.com/v2/' \
           --header 'Content-Type: application/json' \
