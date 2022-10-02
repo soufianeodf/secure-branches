@@ -1,3 +1,1 @@
 # secure-branches
-
-new feature
