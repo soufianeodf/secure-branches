@@ -42,3 +42,9 @@ jobs:
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
 
+      - name: Create Release On Monday
+        run: |
+          curl --location --request POST 'https://api.monday.com/v2/' \
+          --header 'Content-Type: application/json' \
+          --header 'Authorization: ${{ secrets.MONDAY_TOKEN }}' \
+          --data-raw '{"query":"mutation {\n  create_item(\n  board_id: 3285229350, \n  group_id: \"new_group\", \n  item_name: \"Vx.x.1\", \n  column_values: \"{ \\\"status\\\": { \\\"index\\\": 1 }, \\\"link\\\": { \\\"url\\\": \\\"www.github.com\\\", \\\"text\\\": \\\"See release details\\\" }, \\\"text\\\": \\\"-\\\" }\") {\n    id\n  }\n}","variables":{}}'
