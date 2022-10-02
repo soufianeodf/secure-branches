@@ -1,4 +1,13 @@
-# 0.1.0 (2022-10-02)
+# [0.2.0](https://github.com/soufianeodf/secure-branches/compare/v0.1.0...v0.2.0) (2022-10-02)
+
+
+### Features
+
+* clean up readme ([ad3ad77](https://github.com/soufianeodf/secure-branches/commit/ad3ad775b04a0f54ff89db811446830f88d3aad5))
+
+
+
+# [0.1.0](https://github.com/soufianeodf/secure-branches/compare/767555d532e2bccb6fc09d35c6ac60aacb6c80c6...v0.1.0) (2022-10-02)
 
 
 ### Features
