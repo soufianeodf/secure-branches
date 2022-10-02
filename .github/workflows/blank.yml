@@ -36,6 +36,7 @@ jobs:
 
       - name: Create Release
         uses: actions/create-release@v1
+        id: create_release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -43,11 +44,10 @@ jobs:
           tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
-          git-branch: 'main'
 
       - name: Create Release On Monday
         run: |
           curl --location --request POST 'https://api.monday.com/v2/' \
           --header 'Content-Type: application/json' \
           --header 'Authorization: ${{ secrets.MONDAY_TOKEN }}' \
-          --data-raw '{"query":"mutation {\n  create_item(\n  board_id: 3285229350, \n  group_id: \"new_group\", \n  item_name: \"${{ github.event.release.tag_name }}\", \n  column_values: \"{ \\\"status\\\": { \\\"index\\\": 1 }, \\\"link\\\": { \\\"url\\\": \\\"${{ github.event.release.html_url }}\\\", \\\"text\\\": \\\"See release details\\\" }, \\\"text\\\": \\\"-\\\" }\") {\n    id\n  }\n}","variables":{}}'
+          --data-raw '{"query":"mutation {\n  create_item(\n  board_id: 3285229350, \n  group_id: \"new_group\", \n  item_name: \"${{ steps.create_release.outputs.release_name }}\", \n  column_values: \"{ \\\"status\\\": { \\\"index\\\": 1 }, \\\"link\\\": { \\\"url\\\": \\\"${{ steps.create_release.outputs.html_url }}\\\", \\\"text\\\": \\\"See release details\\\" }, \\\"text\\\": \\\"-\\\" }\") {\n    id\n  }\n}","variables":{}}'
