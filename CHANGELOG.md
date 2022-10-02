@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/soufianeodf/secure-branches/compare/v0.2.1...v0.3.0) (2022-10-02)
+
+
+### Features
+
+* new feature ([833e806](https://github.com/soufianeodf/secure-branches/commit/833e806bab5c7d9da954cef2a6f3c580865a8f51))
+
+
+
 ## [0.2.1](https://github.com/soufianeodf/secure-branches/compare/v0.2.0...v0.2.1) (2022-10-02)
 
 
