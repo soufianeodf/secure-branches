@@ -51,4 +51,4 @@ jobs:
           curl --location --request POST 'https://api.monday.com/v2/' \
           --header 'Content-Type: application/json' \
           --header 'Authorization: ${{ secrets.MONDAY_TOKEN }}' \
-          --data-raw '{"query":"mutation {\n  create_item(\n  board_id: 3285229350, \n  group_id: \"new_group\", \n  item_name: \"${{ steps.create_release.outputs.release_name }}\", \n  column_values: \"{ \\\"status\\\": { \\\"index\\\": 1 }, \\\"link\\\": { \\\"url\\\": \\\"${{ steps.create_release.outputs.html_url }}\\\", \\\"text\\\": \\\"See release details\\\" }, \\\"text\\\": \\\"-\\\" }\") {\n    id\n  }\n}","variables":{}}'
+          --data-raw '{"query":"mutation {\n  create_item(\n  board_id: 3285229350, \n  group_id: \"new_group\", \n  item_name: \"${{ steps.create_release.outputs.id }}\", \n  column_values: \"{ \\\"status\\\": { \\\"index\\\": 1 }, \\\"link\\\": { \\\"url\\\": \\\"${{ steps.create_release.outputs.html_url }}\\\", \\\"text\\\": \\\"See release details\\\" }, \\\"text\\\": \\\"-\\\" }\") {\n    id\n  }\n}","variables":{}}'
